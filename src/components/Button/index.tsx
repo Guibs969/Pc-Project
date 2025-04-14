@@ -1,4 +1,5 @@
-import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { View,  TouchableOpacity, Text } from "react-native";
+import { styles } from "./styles";
 
 type Props =  {
   tittle: string;
@@ -15,21 +16,6 @@ export function Button({tittle, onPreess}:Props) {
     </View>
   );
 }
-export const styles = StyleSheet.create({
 
-  button: {
-    justifyContent:'center',
-    alignItems:'center',
-    backgroundColor: "#1351B4", 
-    padding: 15,
-    borderRadius: 25,
-    width:200,
-  },
-  buttonText: {
-    color: "#FFFFFF",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-});
 
   

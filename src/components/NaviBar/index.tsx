@@ -1,7 +1,8 @@
-import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
+import { View,TouchableOpacity, Text } from "react-native";
 import { Divider } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from '@react-navigation/native';
+import { styles } from "./styles";
 
 
 export function NaviBar() {
@@ -24,11 +25,6 @@ export function NaviBar() {
       <Text style={styles.text}>Inicio</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity  onPress={handleOptionHome}>
-      <Icon name="users" size={50} color="#000" />
-      <Text style={styles.text}>Usuários</Text>
-           
-      </TouchableOpacity>
       <TouchableOpacity  onPress={handleOptionHome}>
       <Icon name="barcode" size={50} color="#000" />
       <Text style={styles.text}>BarCode</Text>
@@ -53,19 +49,3 @@ export function NaviBar() {
   );
 }
 
-export const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row", 
-    justifyContent: "space-between", 
-    alignItems: "center", 
-    padding:20,
-   
-  },
-
-  text: {
-    textAlign:'center',
-    color: "#gray",
-    fontSize: 14,
-    
-  },
-});

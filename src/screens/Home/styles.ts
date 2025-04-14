@@ -8,7 +8,16 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
-    fontSize: 25,
-    color: "#333",
+    position:'absolute',
+    top:5,
+    color: "#1351B4",
+    fontSize: 24,
+    
+
+  },
+  list:{
+    width:'100%',
+    padding:10,
+    margin:35,
   },
 });
