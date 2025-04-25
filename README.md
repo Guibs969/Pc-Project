@@ -1,2 +1,2 @@
-Templaite para Mobile - MEC
+App de gestão de HardWare
 
