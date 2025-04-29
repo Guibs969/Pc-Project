@@ -15,6 +15,11 @@ export function NaviBar() {
   
     }
 
+    function handleOptionsButton () {
+      navigation.navigate("Options");
+      console.log("O botão Options foi apertado!");
+    }
+
 
   return (
     <>
@@ -38,7 +43,7 @@ export function NaviBar() {
       <Text style={styles.text}>Desktops</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity  onPress={handleOptionHome}>
+      <TouchableOpacity  onPress={handleOptionsButton}>
       <Icon name="sliders" size={50} color="#000" 
       />
       <Text style={styles.text}>Opções</Text>
