@@ -8,7 +8,7 @@ export function Login() {
 const navigation = useNavigation();
  function handleEntrar ()  {
 
-  navigation.navigate('Home');
+  navigation.navigate('Main');
   console.log('O botão entrar foi clicado!!');
 
   }
