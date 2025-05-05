@@ -1,4 +1,5 @@
-import { api } from "@/src/services/api";
+import { api } from "../../services/api";
+import { Loading } from '../../components/Loading';
 import React, { useEffect, useState } from "react";
 import { Text, View, FlatList } from "react-native";
 import { styles } from "./styles";
@@ -7,23 +8,33 @@ import { NaviBar } from "../../components/NaviBar";
 import { PcCard } from "@/src/components/PcCard";
 import { useNavigation } from "@react-navigation/native";
 
+interface Computador {
+  id: number;
+  nome_computador: string;
+  modelo_computador: string;
+  marca_computador: string;
+  localizacao: string;
+}
+
 export function Home() {
   const navigation = useNavigation();
-  const [computers, setComputers] = useState([]); 
+  const [computadores, setComputadores] = useState<Computador[]>([]);
+  const [isLoading, setIsLoading] = useState(true); 
 
-  
   useEffect(() => {
-    async function fetchComputers() {
+    async function fetchComputadores() {
       try {
-        const response = await api.get("http://192.168.1.11:7080/api/pcs/listar");
-        console.log("Resposta da API:", response.data.data); 
-        setComputers(response.data.data); 
+        const response = await api.get("/pcs/listar");
+        console.log("Resposta completa da API:", response);
+        setComputadores(response.data.data);
       } catch (error) {
-        console.error("Erro ao buscar os computadores:", error);
+        console.error("Erro", error);
+      } finally {
+        setIsLoading(false); 
       }
     }
-  
-    fetchComputers();
+
+    fetchComputadores();
   }, []);
 
   function handlePc() {
@@ -35,19 +46,22 @@ export function Home() {
       <Header />
       <View style={styles.container}>
         <Text style={styles.text}> Computadores - MEC </Text>
-
-        <FlatList
-  style={styles.list}
-  data={computers} // Dados atualizados
-  keyExtractor={(item) => item.id.toString()} // Certifique-se de que "id" é único
-  renderItem={({ item }) => (
-    <PcCard
-      title={item.nome_computador} // Nome do computador como título
-      description={`${item.modelo_computador} - ${item.marca_computador} - ${item.localizacao}`} // Descrição formatada
-      onPress={handlePc} // Função ao clicar no card
-    />
-  )}
-/>
+        {isLoading ? ( 
+          <Loading />
+        ) : (
+          <FlatList
+            style={styles.list}
+            data={computadores || []}
+            keyExtractor={(item) => item.id?.toString()}
+            renderItem={({ item }) => (
+              <PcCard
+                title={item?.nome_computador || "Nome não disponível"}
+                description={`${item?.modelo_computador || "Modelo desconhecido"} - ${item?.marca_computador || "Marca desconhecida"} - ${item?.localizacao || "Localização desconhecida"}`}
+                onPress={handlePc}
+              />
+            )}
+          />
+        )}
       </View>
       <NaviBar />
     </>

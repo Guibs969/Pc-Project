@@ -2,7 +2,7 @@ import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/
 import { Loading } from '../components/Loading';
 import { StatusBar } from 'react-native';
 import { AppRoutes } from '../routes/app.routes';
-import { NavigationContainer } from '@react-navigation/native';
+
 
 export default function App() {
   const [fontsLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
