@@ -1,51 +1,50 @@
-import { View,TouchableOpacity, Text } from "react-native";
+import { View, TouchableOpacity, Text } from "react-native";
 import { Divider } from "react-native-elements";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from '@react-navigation/native';
+import { DrawerNavigationProp } from '@react-navigation/drawer';
 import { styles } from "./styles";
 
+type DrawerParamList = {
+  Home: undefined;
+};
 
 export function NaviBar() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<DrawerNavigationProp<DrawerParamList>>();
 
-  function handleOptionHome ()  {
-
-    navigation.navigate('Login'); // Só esta assim para teste , más logo depois vou implementar mais coisas
+  function handleOptionHome () {
+    navigation.navigate('Home');
     console.log('O botão Home foi apertado!');
-  
-    }
+  }
 
+  function handleOptionsButton () {
+    navigation.openDrawer();
+    console.log("O botão Options foi apertado!");
+  }
 
   return (
     <>
-    <Divider/><Divider/><Divider/><Divider/>{/*Isso aqui é apenas algo estetico, atrapalha em nada o app */}
-    <View style={styles.container}>
-      <TouchableOpacity  onPress={handleOptionHome}>
-      <Icon name="home" size={50} color="#000"  />
-      <Text style={styles.text}>Inicio</Text>
-      </TouchableOpacity>
+      <Divider /><Divider /><Divider /><Divider />
+      <View style={styles.container}>
+        <TouchableOpacity onPress={handleOptionHome}>
+          <Icon name="home" size={50} color="#000" />
+          <Text style={styles.text}>Inicio</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity  onPress={handleOptionHome}>
-      <Icon name="barcode" size={50} color="#000" />
-      <Text style={styles.text}>BarCode</Text>
-           
-      </TouchableOpacity>
+        <TouchableOpacity onPress={handleOptionHome}>
+          <Icon name="barcode" size={50} color="#000" />
+          <Text style={styles.text}>BarCode</Text>
+        </TouchableOpacity>
 
+        <TouchableOpacity onPress={handleOptionHome}>
+          <Icon name="desktop" size={50} color="#000" />
+          <Text style={styles.text}>Desktops</Text>
+        </TouchableOpacity>
 
-      <TouchableOpacity  onPress={handleOptionHome}>
-      <Icon name="desktop" size={50} color="#000" 
-      />
-      <Text style={styles.text}>Desktops</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity  onPress={handleOptionHome}>
-      <Icon name="sliders" size={50} color="#000" 
-      />
-      <Text style={styles.text}>Opções</Text>
-      </TouchableOpacity>
-
-    </View>
+        <TouchableOpacity onPress={handleOptionsButton}>
+          <Icon name="sliders" size={50} color="#000" />
+          <Text style={styles.text}>Opções</Text>
+        </TouchableOpacity>
+      </View>
     </>
-  );
-}
-
+  );}

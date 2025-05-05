@@ -1,18 +1,12 @@
-import { Container, LoadIndicator} from "./styles";
+import React from "react";
+import {styles} from "./styles";
+import { View, ActivityIndicator, StyleSheet } from "react-native";
 
-export function Loading () {
-  
-    return (
-    
-      <Container>
-
-          <LoadIndicator color="white" size={75}/>
-
-
-      </Container>
-
-
-
-       );
-  
+export function Loading() {
+  return (
+    <View style={styles.container}>
+      <ActivityIndicator size="large" color="#1351B4" />
+    </View>
+  );
 }
+
