@@ -2,8 +2,9 @@ import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { View, Text } from 'react-native';
 import { styles } from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { DrawerContentComponentProps } from '@react-navigation/drawer';
 
-export function OptionsDrawerContent(props) {
+export function OptionsDrawerContent(props: DrawerContentComponentProps) {
   return (
     <DrawerContentScrollView style={styles.drawer} {...props}>
       <View style={styles.nameCard}>
