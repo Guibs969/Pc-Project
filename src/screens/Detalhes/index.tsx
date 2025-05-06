@@ -51,16 +51,16 @@ export function Detalhes() {
         {isLoading ? (
           <Loading />
         ) : computador ? (
-          <>
-            <Text style={styles.text} > Nome: {computador.nome_computador}</Text>
-            <Text style={styles.text} > Modelo: {computador.modelo_computador}</Text>
-            <Text style={styles.text} > Marca: {computador.marca_computador}</Text>
-            <Text style={styles.text} > Tipo: {computador.tipo_compuador}</Text>
-            <Text style={styles.text} > Data de Aquisição: {computador.data_aquisicao}</Text>
-            <Text style={styles.text} > Valor de Aquisição: R$ {computador.valor_aquisicao}</Text>
-            <Text style={styles.text} > Disponibilidade: {computador.disponibilade}</Text>
-            <Text style={styles.text} > Localização: {computador.localizacao}</Text>
-          </>
+            <View style={styles.card}>
+              <Text style={styles.text}>Nome: {computador.nome_computador}</Text>
+              <Text style={styles.text}>Modelo: {computador.modelo_computador}</Text>
+              <Text style={styles.text}>Marca: {computador.marca_computador}</Text>
+              <Text style={styles.text}>Tipo: {computador.tipo_compuador}</Text>
+              <Text style={styles.text}>Data de Aquisição: {computador.data_aquisicao}</Text>
+              <Text style={styles.text}>Valor de Aquisição: R$ {computador.valor_aquisicao}</Text>
+              <Text style={styles.text}>Disponibilidade: {computador.disponibilade}</Text>
+            <Text style={styles.text}>Localização: {computador.localizacao}</Text>
+        </View>
         ) : (
           <Text>Computador não encontrado.</Text>
         )}
