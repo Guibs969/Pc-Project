@@ -16,7 +16,7 @@ interface Computador {
   localizacao: string;
 }
 
-export function Home() {
+export function Desktop() {
   const navigation = useNavigation();
   const [computadores, setComputadores] = useState<Computador[]>([]);
   const [isLoading, setIsLoading] = useState(true); 
@@ -37,8 +37,8 @@ export function Home() {
     fetchComputadores();
   }, []);
 
-  function handlePc(id: number) {
-    navigation.navigate("Detalhes", { id });
+  function handlePc() {
+    navigation.navigate("Login");
   }
 
   return (
@@ -57,7 +57,7 @@ export function Home() {
               <PcCard
                 title={item?.nome_computador || "Nome não disponível"}
                 description={`${item?.modelo_computador || "Modelo desconhecido"} - ${item?.marca_computador || "Marca desconhecida"} - ${item?.localizacao || "Localização desconhecida"}`}
-                onPress={() => handlePc(item.id)}
+                onPress={handlePc}
               />
             )}
           />
