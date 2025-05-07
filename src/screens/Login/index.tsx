@@ -18,7 +18,7 @@ const navigation = useNavigation();
 <>
   <Header/>
         <View style={styles.container}>
-        <Text style={styles.text}> Gestão de Hardware - MEC  </Text>
+        <Text style={styles.text}> Gesh - App de Gestão de Hardware </Text>
         <Image  
         source={require("../../../assets/images/img.home.png")}
         style={styles.logo}
