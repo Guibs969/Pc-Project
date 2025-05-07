@@ -26,7 +26,7 @@ const navigation = useNavigation();
 
       <View style={styles.button}>
         <Button 
-        tittle="Entrar"
+        title="Entrar"
         onPreess={handleEntrar}
         />
       </View>

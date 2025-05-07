@@ -24,6 +24,34 @@ export const styles = StyleSheet.create({
     color:"white",
     fontSize:20,
   },
-
+  buttonDiv: {
+    marginTop: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+  },
+  buttonEdit: {
+    flexDirection: "row",
+    backgroundColor: "#007BFF", 
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    alignItems: "center",
+    gap: 10, 
+  },
+  buttonDelete: {
+    flexDirection: "row",
+    backgroundColor: "#DC3545", 
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    alignItems: "center",
+    gap: 10, 
+  },
+  buttonText: {
+    color: "#FFFFFF",
+    fontSize: 14,
+    fontWeight: "500",
+  },
 
 });

@@ -7,6 +7,10 @@ import { Header } from "../../components/Header";
 import { NaviBar } from "../../components/NaviBar";
 import { useNavigation } from "@react-navigation/native";
 import { useRoute } from "@react-navigation/native";
+import { Button } from "../../components/Button";
+import { TouchableOpacity } from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 interface Computador {
@@ -60,7 +64,17 @@ export function Detalhes() {
               <Text style={styles.text}>Valor de Aquisição: R$ {computador.valor_aquisicao}</Text>
               <Text style={styles.text}>Disponibilidade: {computador.disponibilade}</Text>
             <Text style={styles.text}>Localização: {computador.localizacao}</Text>
-        </View>
+            <View style={styles.buttonDiv}>
+              <TouchableOpacity style={styles.buttonEdit} onPress={() => console.log("Botão Editar pressionado")}>
+                <Icon name="edit" size={20} color="#FFFFFF" />
+                <Text style={styles.buttonText}>Editar</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.buttonDelete} onPress={() => console.log("Botão Excluir pressionado")}>
+                <Icon2 name="delete" size={20} color="#FFFFFF" />
+                <Text style={styles.buttonText}>Excluir</Text>
+              </TouchableOpacity>
+          </View>
+            </View>
         ) : (
           <Text>Computador não encontrado.</Text>
         )}
