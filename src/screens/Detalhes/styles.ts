@@ -3,7 +3,6 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#29292E",
     justifyContent: "flex-start",
     alignItems: "center",
     paddingTop: 45,
@@ -13,7 +12,7 @@ export const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 10,
     marginVertical: 10,
-    width: "90%",
+    width: "95%",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
