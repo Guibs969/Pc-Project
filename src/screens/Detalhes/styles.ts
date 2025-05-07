@@ -53,4 +53,99 @@ export const styles = StyleSheet.create({
     fontWeight: "500",
   },
 
+  modalContainer: {
+    justifyContent: "flex-end",
+    backgroundColor: "#FFFFFF",
+    padding: 50,
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  labelView:{
+    flexDirection:'row',
+    justifyContent:"space-between",
+    alignItems:'center',
+    width:'100%',
+  },
+  label: {
+    fontWeight:'bold',
+    paddingBottom:10,
+    fontSize: 16,
+    marginBottom: 5,
+  },
+  input: {
+    width:'60%',
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 15,
+  },
+
+  buttonGroup: {
+    flexDirection: "row",
+    justifyContent:'center',
+    gap:15,
+  
+  },
+  
+  buttonNao: {
+    padding:15,
+    backgroundColor: "#29292E", 
+    borderRadius: 25,
+    alignItems: "center",
+  },
+  buttonSim: {
+    padding:15,
+    backgroundColor: "#29292E",
+    borderRadius: 25,
+    alignItems: "center",
+  },
+  
+  buttonSaveCancel: {
+    paddingTop:300,
+    flexDirection: "row",
+    gap:10,
+  },
+  
+  buttonSave: {
+    flex: 1,
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor: "#1351B4", 
+    padding: 15,
+    borderRadius: 25,
+    width:200,
+  },
+  
+  buttonCancel: {
+    flex: 1,
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor: "#1351B4", 
+    padding: 15,
+    borderRadius: 25,
+    width:200,
+  },
+  labelDisp:{
+   padding:20,
+    textAlign:'center',
+    fontWeight:'bold',
+    paddingBottom:10,
+    fontSize: 16,
+    marginBottom: 5,
+
+
+  },
+  buttonSelectedSim: {
+    backgroundColor: "#4CAF50", 
+  },
+  
+  buttonSelectedNao: {
+    backgroundColor: "#FF0000", 
+  },
+
+
 });

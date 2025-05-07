@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, View, TouchableOpacity } from "react-native";
+import { Modal, Text, View, TouchableOpacity, TextInput,  Button} from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { api } from "../../services/api";
 
@@ -30,6 +30,10 @@ export function Detalhes() {
   const navigation = useNavigation();
   const route = useRoute();
   const { id } = route.params as { id: number }; 
+
+  const[isEditModalVisible, setIsEditModalVisible] = useState(false);
+  const[editedComputador, setEditedComputador] = useState<Computador | null>(null);
+  const [disponibilidade, setDisponibilidade] = useState<boolean | null>(null);
   const [computador, setComputador] = useState<Computador | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -63,9 +67,32 @@ export function Detalhes() {
     navigation.navigate('Home');
   }
 }
+  // Função para abrir o modal e preencher os dados
+  function abrirModalEdicao() {
+    setEditedComputador(computador); 
+    setIsEditModalVisible(true);
+    setDisponibilidade(computador?.disponibilade || null);
+  }
+  // Função para salvar as alterações de Edit
+  async function salvarEdicao() {
+    if (!editedComputador) return;
 
-
-
+    try {
+      const response = await api.put(`/pcs/atualizar/${id}`, editedComputador);
+      console.log("Resposta da API ao atualizar:", response);
+      setComputador(response.data);
+      setIsEditModalVisible(false); 
+    } catch (error) {
+      console.error("Erro ao atualizar o PC", error);
+    }
+  }
+  function alterarDisponibilidade(valor: boolean) {
+    setDisponibilidade(valor);
+    setEditedComputador((prev) => {
+      if (!prev) return null;
+      return { ...prev, disponibilade: valor };
+    });
+  }
 
   return (
     <>
@@ -81,10 +108,10 @@ export function Detalhes() {
               <Text style={styles.text}>Tipo: {computador.tipo_compuador}</Text>
               <Text style={styles.text}>Data de Aquisição: {computador.data_aquisicao}</Text>
               <Text style={styles.text}>Valor de Aquisição: R$ {computador.valor_aquisicao}</Text>
-              <Text style={styles.text}>Disponibilidade: {computador.disponibilade}</Text>
+              <Text style={styles.text}>Disponibilidade: {computador.disponibilade ?"Sim" : "Não" }</Text>
             <Text style={styles.text}>Localização: {computador.localizacao}</Text>
             <View style={styles.buttonDiv}>
-              <TouchableOpacity style={styles.buttonEdit} onPress={() => console.log("Botão Editar pressionado")}>
+              <TouchableOpacity style={styles.buttonEdit} onPress={abrirModalEdicao}>
                 <Icon name="edit" size={20} color="#FFFFFF" />
                 <Text style={styles.buttonText}>Editar</Text>
               </TouchableOpacity>
@@ -98,6 +125,94 @@ export function Detalhes() {
           <Text>Computador não encontrado.</Text>
         )}
       </View>
+
+
+     <Modal visible={isEditModalVisible} animationType="slide">
+     <View style={styles.modalContainer}>
+      <Text style={styles.modalTitle}>Editar Computador</Text>
+      <View style={styles.labelView}> 
+        <Text style={styles.label}>Nome:</Text>
+        <TextInput
+          style={styles.input}
+          value={editedComputador?.nome_computador}
+          onChangeText={(text) =>
+            setEditedComputador((prev) => {
+              if (!prev) return null;
+              return { ...prev, nome_computador: text };
+            })
+          }
+          placeholder="Nome do Computador"
+        />
+        </View>
+
+
+        <View style={styles.labelView}> 
+    <Text style={styles.label}>Hardware:</Text>
+        <TextInput
+          style={styles.input}
+          value={editedComputador?.modelo_computador}
+          onChangeText={(text) =>
+            setEditedComputador((prev) => {
+              if (!prev) return null;
+              return { ...prev, modelo_computador: text };
+            })
+          }
+          placeholder="Hardware"
+        />
+        </View>
+
+
+
+      <View style={styles.labelView}> 
+        <Text style={styles.label}>Localização:</Text>
+        <TextInput
+          style={styles.input}
+          value={editedComputador?.localizacao}
+          onChangeText={(text) =>
+            setEditedComputador((prev) => {
+              if (!prev) return null;
+              return { ...prev, localizacao: text };
+            })
+          }
+          placeholder="Localização"
+        />
+        </View>
+
+       
+        <Text style={styles.labelDisp}>Disponibilidade</Text>
+        <View style={styles.buttonGroup}> 
+        <TouchableOpacity
+          style={[
+            styles.buttonSim,
+            disponibilidade === true && styles.buttonSelectedSim, // Estilo para botão selecionado
+          ]}
+          onPress={() => alterarDisponibilidade(true)}
+        >
+          <Text style={styles.buttonText}>Sim</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+       style={[
+       styles.buttonNao,
+         disponibilidade === false && styles.buttonSelectedNao, // Estilo para botão selecionado
+           ]}
+           onPress={() => alterarDisponibilidade(false)}
+          >
+        <Text style={styles.buttonText}>Não</Text>
+        </TouchableOpacity>
+     
+      </View>
+        <View   style ={styles.buttonSaveCancel} >
+      <TouchableOpacity style={styles.buttonCancel} onPress={() => setIsEditModalVisible(false)}>
+        <Text style={styles.buttonText}>Cancelar</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.buttonSave} onPress={salvarEdicao}>
+        <Text style={styles.buttonText}>Salvar</Text>
+      </TouchableOpacity>
+      
+        </View>
+       </View>
+       </Modal>
       <NaviBar />
     </>
   );
