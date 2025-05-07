@@ -21,7 +21,7 @@ interface Computador {
   tipo_compuador: string;
   data_aquisicao: string;
   valor_aquisicao: number;
-  disponibilade: boolean;
+  disponibilidade: boolean;
   localizacao: string;
 }
 
@@ -71,17 +71,21 @@ export function Detalhes() {
   function abrirModalEdicao() {
     setEditedComputador(computador); 
     setIsEditModalVisible(true);
-    setDisponibilidade(computador?.disponibilade || null);
+    setDisponibilidade(computador?.disponibilidade || null);
   }
   // Função para salvar as alterações de Edit
   async function salvarEdicao() {
     if (!editedComputador) return;
-
+  
     try {
-      const response = await api.put(`/pcs/atualizar/${id}`, editedComputador);
+      // Atualize o objeto com o valor de disponibilidade antes de enviar
+      const computadorAtualizado = { ...editedComputador, disponibilidade };
+  
+      const response = await api.put(`/pcs/atualizar/${id}`, computadorAtualizado);
       console.log("Resposta da API ao atualizar:", response);
-      setComputador(response.data);
-      setIsEditModalVisible(false); 
+  
+      setComputador(response.data); // Atualiza o estado com os dados retornados
+      setIsEditModalVisible(false); // Fecha o modal
     } catch (error) {
       console.error("Erro ao atualizar o PC", error);
     }
@@ -90,7 +94,7 @@ export function Detalhes() {
     setDisponibilidade(valor);
     setEditedComputador((prev) => {
       if (!prev) return null;
-      return { ...prev, disponibilade: valor };
+      return { ...prev, disponibilidade: valor };
     });
   }
 
@@ -108,7 +112,7 @@ export function Detalhes() {
               <Text style={styles.text}>Tipo: {computador.tipo_compuador}</Text>
               <Text style={styles.text}>Data de Aquisição: {computador.data_aquisicao}</Text>
               <Text style={styles.text}>Valor de Aquisição: R$ {computador.valor_aquisicao}</Text>
-              <Text style={styles.text}>Disponibilidade: {computador.disponibilade ?"Sim" : "Não" }</Text>
+              <Text style={styles.text}>Disponibilidade: {computador.disponibilidade ?"Sim" : "Não" }</Text>
             <Text style={styles.text}>Localização: {computador.localizacao}</Text>
             <View style={styles.buttonDiv}>
               <TouchableOpacity style={styles.buttonEdit} onPress={abrirModalEdicao}>
