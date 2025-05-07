@@ -131,8 +131,9 @@ export function Detalhes() {
       </View>
 
 
-     <Modal visible={isEditModalVisible} animationType="slide">
+     <Modal visible={isEditModalVisible} animationType="slide" transparent>
      <View style={styles.modalContainer}>
+      <View style={styles.modalContent}>
       <Text style={styles.modalTitle}>Editar Computador</Text>
       <View style={styles.labelView}> 
         <Text style={styles.label}>Nome:</Text>
@@ -215,6 +216,7 @@ export function Detalhes() {
       </TouchableOpacity>
       
         </View>
+       </View>
        </View>
        </Modal>
       <NaviBar />

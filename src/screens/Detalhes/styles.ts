@@ -54,14 +54,25 @@ export const styles = StyleSheet.create({
   },
 
   modalContainer: {
-    justifyContent: "flex-end",
-    backgroundColor: "#FFFFFF",
-    padding: 50,
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
+
+  modalContent: {
+    width: "90%",
+    backgroundColor: "#FFFFFF",
+    padding: 20,
+    borderRadius: 10,
+    elevation: 5,
+  },
+  
   modalTitle: {
-    fontSize: 20,
+    fontSize: 22.5,
     fontWeight: "bold",
     marginBottom: 20,
+    textAlign: "center",
   },
   labelView:{
     flexDirection:'row',
@@ -79,6 +90,7 @@ export const styles = StyleSheet.create({
     width:'60%',
     borderWidth: 1,
     borderColor: "#ccc",
+    backgroundColor: "#F5F5F5",
     borderRadius: 5,
     padding: 10,
     marginBottom: 15,
@@ -93,19 +105,21 @@ export const styles = StyleSheet.create({
   
   buttonNao: {
     padding:15,
+    paddingHorizontal: 30,
     backgroundColor: "#29292E", 
-    borderRadius: 25,
+    borderRadius: 15,
     alignItems: "center",
   },
   buttonSim: {
     padding:15,
+    paddingHorizontal: 30,
     backgroundColor: "#29292E",
-    borderRadius: 25,
+    borderRadius: 15,
     alignItems: "center",
   },
   
   buttonSaveCancel: {
-    paddingTop:300,
+    paddingTop:100,
     flexDirection: "row",
     gap:10,
   },
