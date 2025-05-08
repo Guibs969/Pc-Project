@@ -37,8 +37,8 @@ export function Home() {
     fetchComputadores();
   }, []);
 
-  function handlePc() {
-    navigation.navigate("Login");
+  function handlePc(id: number) {
+    navigation.navigate("Detalhes", { id });
   }
 
   return (
@@ -57,7 +57,7 @@ export function Home() {
               <PcCard
                 title={item?.nome_computador || "Nome não disponível"}
                 description={`${item?.modelo_computador || "Modelo desconhecido"} - ${item?.marca_computador || "Marca desconhecida"} - ${item?.localizacao || "Localização desconhecida"}`}
-                onPress={handlePc}
+                onPress={() => handlePc(item.id)}
               />
             )}
           />

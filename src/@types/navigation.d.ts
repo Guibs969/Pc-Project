@@ -4,6 +4,7 @@ export declare global {
             Login: undefined;
             Home: undefined;
             Options: undefined;
+            Detalhes: { id: number };
         }
     }
 }

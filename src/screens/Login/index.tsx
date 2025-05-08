@@ -8,7 +8,7 @@ export function Login() {
 const navigation = useNavigation();
  function handleEntrar ()  {
 
-  navigation.navigate('Main');
+  navigation.navigate('Home');
   console.log('O botão entrar foi clicado!!');
 
   }
@@ -18,7 +18,7 @@ const navigation = useNavigation();
 <>
   <Header/>
         <View style={styles.container}>
-        <Text style={styles.text}> Gestão de Hardware - MEC  </Text>
+        <Text style={styles.text}> Gesh - App de Gestão de Hardware </Text>
         <Image  
         source={require("../../../assets/images/img.home.png")}
         style={styles.logo}
@@ -26,7 +26,7 @@ const navigation = useNavigation();
 
       <View style={styles.button}>
         <Button 
-        tittle="Entrar"
+        title="Entrar"
         onPreess={handleEntrar}
         />
       </View>
