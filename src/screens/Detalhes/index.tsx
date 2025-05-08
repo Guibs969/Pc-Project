@@ -103,6 +103,7 @@ export function Detalhes() {
     <>
       <Header />
       <View style={styles.container}>  
+        <Text style={styles.text1}> Computador </Text>
         {isLoading ? (
           <Loading />
         ) : computador ? (

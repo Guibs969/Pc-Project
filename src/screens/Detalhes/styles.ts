@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     paddingTop: 45,
+    backgroundColor: "#fff",
   },
   card: {
     backgroundColor: "#1F1F23",
@@ -22,6 +23,13 @@ export const styles = StyleSheet.create({
   text:{
     color:"white",
     fontSize:20,
+  },
+  text1: {
+    position:'absolute',
+    top:5,
+    color: "#1351B4",
+    fontSize: 24,
+
   },
   buttonDiv: {
     marginTop: 20,
