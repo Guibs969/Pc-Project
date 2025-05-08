@@ -7,6 +7,8 @@ import { styles } from "./styles";
 
 type DrawerParamList = {
   Home: undefined;
+  Desktop: undefined;
+  Detalhes: { id: number };
 };
 
 export function NaviBar() {
@@ -15,6 +17,10 @@ export function NaviBar() {
   function handleOptionHome () {
     navigation.navigate('Home');
     console.log('O botão Home foi apertado!');
+  }
+  function handleOptionDesktop () {
+    navigation.navigate('Desktop');
+    console.log('O botão Desktop foi apertado!');
   }
 
   function handleOptionsButton () {
@@ -36,7 +42,7 @@ export function NaviBar() {
           <Text style={styles.text}>BarCode</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={handleOptionHome}>
+        <TouchableOpacity onPress={handleOptionDesktop}>
           <Icon name="desktop" size={50} color="#000" />
           <Text style={styles.text}>Desktops</Text>
         </TouchableOpacity>

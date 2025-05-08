@@ -12,12 +12,7 @@ export const styles = StyleSheet.create({
     top:5,
     color: "#1351B4",
     fontSize: 24,
-    
 
   },
-  list:{
-    width:'100%',
-    padding:10,
-    margin:35,
-  },
+
 });

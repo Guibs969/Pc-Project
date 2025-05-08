@@ -9,8 +9,8 @@ export function OptionsDrawerContent(props: DrawerContentComponentProps) {
     <DrawerContentScrollView style={styles.drawer} {...props}>
       <View style={styles.nameCard}>
         <View style={styles.nameIcon}>
-          <Text style={styles.userName}>Marcos de Lima Prado</Text>
-          <Text style={styles.userInfo}>Estagiário</Text>
+          <Text style={styles.userName}>Kratos da Silva</Text>
+          <Text style={styles.userInfo}>Engenheiro de Software</Text>
           <Text style={styles.userInfo}>000.000.000-00</Text>
         </View>
         <Icon name='user-circle' size={60} color="#2E2E2E" />

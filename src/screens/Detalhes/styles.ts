@@ -119,7 +119,7 @@ export const styles = StyleSheet.create({
   },
   
   buttonSaveCancel: {
-    paddingTop:100,
+    paddingTop:70,
     flexDirection: "row",
     gap:10,
   },
@@ -144,7 +144,7 @@ export const styles = StyleSheet.create({
     width:200,
   },
   labelDisp:{
-   padding:20,
+    paddingTop:40,
     textAlign:'center',
     fontWeight:'bold',
     paddingBottom:10,

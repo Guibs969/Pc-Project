@@ -78,16 +78,17 @@ export function Detalhes() {
     if (!editedComputador) return;
   
     try {
-      // Atualize o objeto com o valor de disponibilidade antes de enviar
       const computadorAtualizado = { ...editedComputador, disponibilidade };
   
       const response = await api.put(`/pcs/atualizar/${id}`, computadorAtualizado);
       console.log("Resposta da API ao atualizar:", response);
   
-      setComputador(response.data); // Atualiza o estado com os dados retornados
-      setIsEditModalVisible(false); // Fecha o modal
+      setComputador(response.data); 
+      setIsEditModalVisible(false); 
     } catch (error) {
       console.error("Erro ao atualizar o PC", error);
+    } finally{
+      navigation.navigate('Home');
     }
   }
   function alterarDisponibilidade(valor: boolean) {
@@ -189,7 +190,7 @@ export function Detalhes() {
         <TouchableOpacity
           style={[
             styles.buttonSim,
-            disponibilidade === true && styles.buttonSelectedSim, // Estilo para botão selecionado
+            disponibilidade === true && styles.buttonSelectedSim, 
           ]}
           onPress={() => alterarDisponibilidade(true)}
         >
@@ -198,7 +199,7 @@ export function Detalhes() {
         <TouchableOpacity
        style={[
        styles.buttonNao,
-         disponibilidade === false && styles.buttonSelectedNao, // Estilo para botão selecionado
+         disponibilidade === false && styles.buttonSelectedNao, 
            ]}
            onPress={() => alterarDisponibilidade(false)}
           >
