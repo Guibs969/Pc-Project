@@ -1,101 +1,58 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  container: {
+  // Container principal da tela
+  screenContainer: {
     flex: 1,
     justifyContent: "flex-start",
     alignItems: "center",
     paddingTop: 45,
     backgroundColor: "#fff",
   },
-  card: {
-    backgroundColor: "#1F1F23",
-    padding: 20,
-    borderRadius: 10,
-    marginVertical: 10,
-    width: "95%",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  text:{
-    color:"white",
-    fontSize:20,
-  },
-  text1: {
-    position:'absolute',
-    top:5,
+
+  // Título principal da tela
+  titleText: {
+    position: "absolute",
+    top: 5,
     color: "#1351B4",
     fontSize: 24,
+  },
 
-  },
-  buttonDiv: {
-    marginTop: 20,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "100%",
-  },
-  buttonEdit: {
-    flexDirection: "row",
-    backgroundColor: "#007BFF", 
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
-    alignItems: "center",
-    gap: 10, 
-  },
-  buttonDelete: {
-    flexDirection: "row",
-    backgroundColor: "#DC3545", 
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
-    alignItems: "center",
-    gap: 10, 
-  },
+  // Texto dos botões
   buttonText: {
     color: "#FFFFFF",
     fontSize: 14,
     fontWeight: "500",
   },
 
-  modalContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-  },
-
-  modalContent: {
+  // Fundo do formulário
+  formBackground: {
     width: "90%",
     backgroundColor: "#FFFFFF",
     padding: 20,
     borderRadius: 10,
     elevation: 5,
   },
-  
-  modalTitle: {
-    fontSize: 22.5,
+
+  // View para os rótulos e inputs
+  inputGroup: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+  },
+
+  // Estilo dos rótulos
+  inputLabel: {
     fontWeight: "bold",
-    marginBottom: 20,
-    textAlign: "center",
-  },
-  labelView:{
-    flexDirection:'row',
-    justifyContent:"space-between",
-    alignItems:'center',
-    width:'100%',
-  },
-  label: {
-    fontWeight:'bold',
-    paddingBottom:10,
+    paddingBottom: 10,
     fontSize: 16,
     marginBottom: 5,
   },
-  input: {
-    width:'60%',
+
+  // Estilo dos campos de entrada
+  textInput: {
+    width: "60%",
     borderWidth: 1,
     borderColor: "#ccc",
     backgroundColor: "#F5F5F5",
@@ -104,69 +61,73 @@ export const styles = StyleSheet.create({
     marginBottom: 15,
   },
 
-  buttonGroup: {
-    flexDirection: "row",
-    justifyContent:'center',
-    gap:15,
-  
-  },
-  
-  buttonNao: {
-    padding:15,
-    paddingHorizontal: 30,
-    backgroundColor: "#29292E", 
-    borderRadius: 15,
-    alignItems: "center",
-  },
-  buttonSim: {
-    padding:15,
+  // Botão "Não" para disponibilidade
+  buttonNo: {
+    padding: 15,
     paddingHorizontal: 30,
     backgroundColor: "#29292E",
     borderRadius: 15,
     alignItems: "center",
   },
-  
-  buttonSaveCancel: {
-    paddingTop:10,
+
+  // Botão "Sim" para disponibilidade
+  buttonYes: {
+    padding: 15,
+    paddingHorizontal: 30,
+    backgroundColor: "#29292E",
+    borderRadius: 15,
+    alignItems: "center",
+  },
+
+  // Botões de salvar e cancelar
+  saveCancelButtons: {
+    paddingTop: 45,
     flexDirection: "row",
-    gap:10,
+    gap: 10,
   },
-  
-  buttonSave: {
+
+  // Botão de salvar
+  saveButton: {
     flex: 1,
-    justifyContent:'center',
-    alignItems:'center',
-    backgroundColor: "#1351B4", 
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#1351B4",
     padding: 15,
     borderRadius: 25,
-    width:200,
+    width: 200,
   },
-  
-  buttonCancel: {
+
+  // Botão de cancelar
+  cancelButton: {
     flex: 1,
-    justifyContent:'center',
-    alignItems:'center',
-    backgroundColor: "#1351B4", 
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#1351B4",
     padding: 15,
     borderRadius: 25,
-    width:200,
+    width: 200,
   },
-  labelDisp:{
-    textAlign:'center',
-    fontWeight:'bold',
-    paddingBottom:10,
+
+  // Botões de disponibilidade
+  availabilityButtons: {
+    flexDirection: "row",
+    gap: 10, // Espaçamento entre os botões
+  },
+
+  // Rótulo para disponibilidade
+  availabilityLabel: {
+    textAlign: "left",
+    fontWeight: "bold",
     fontSize: 16,
-    marginBottom: 5,
-
-
-  },
-  buttonSelectedSim: {
-    backgroundColor: "#4CAF50", 
-  },
-  
-  buttonSelectedNao: {
-    backgroundColor: "#FF0000", 
   },
 
+  // Botão "Sim" selecionado
+  buttonYesSelected: {
+    backgroundColor: "#4CAF50",
+  },
 
+  // Botão "Não" selecionado
+  buttonNoSelected: {
+    backgroundColor: "#FF0000",
+  },
 });
